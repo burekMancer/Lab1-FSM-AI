@@ -570,6 +570,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &536924661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2405119264687120550, guid: 13d7427d671c6924ab7707e66e4730df, type: 3}
+  m_PrefabInstance: {fileID: 711622682841650147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &536924667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536924661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd86af44a3aa7b94abbe779cf26beaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::playerInputController
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +909,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 8739917509958935715, guid: 13d7427d671c6924ab7707e66e4730df, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: df70fa95-8a34-4494-b137-73ab6b9c7d37
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739917509958935715, guid: 13d7427d671c6924ab7707e66e4730df, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: Keyboard&Mouse
+      objectReference: {fileID: 0}
     - target: {fileID: 9151260720004048660, guid: 13d7427d671c6924ab7707e66e4730df, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.95
@@ -935,7 +960,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2405119264687120550, guid: 13d7427d671c6924ab7707e66e4730df, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 536924667}
   m_SourcePrefab: {fileID: 100100000, guid: 13d7427d671c6924ab7707e66e4730df, type: 3}
 --- !u!1001 &8123736434995696359
 PrefabInstance:
