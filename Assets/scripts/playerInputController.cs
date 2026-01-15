@@ -10,7 +10,7 @@ public class playerInputController : MonoBehaviour
     InputAction moveAction;
     InputAction lookAction;
     Camera playerCamera;
-    float moveSpeed = 20f; //change this shi to 5 dont forget
+    float moveSpeed = 4f; //change this shi to 5 dont forget
     float rotSpeed = 31f;
     float yaw = 0f;
     float botch = 0f;

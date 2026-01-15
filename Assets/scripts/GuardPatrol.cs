@@ -6,46 +6,46 @@ using NUnit.Framework;
 public class GuardPatrol : MonoBehaviour
 {
 
-    NavMeshAgent agent;
+    NavMeshAgent nva;
 
-    [SerializeField] private Transform player;
-    [SerializeField] private List<Transform> waypoints = new List<Transform>(4);
+    public Transform player;
+    public List<Transform> waypoints = new List<Transform>(4);
     int currentwaypoint = 0;
 
-    enum GuardState
+    public enum GuardState
     {
         Patrolling,
         Chasing,
         Returning
     }
 
-    GuardState state = GuardState.Patrolling;
+    public GuardState curState = GuardState.Patrolling;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        nva = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (state)
+        switch (curState)
         {
             case GuardState.Patrolling:
-                if(!agent.pathPending && agent.remainingDistance < 7f) {
-                    agent.SetDestination(waypoints[currentwaypoint].position);
+                if(!nva.pathPending && nva.remainingDistance < 1f) {
+                    nva.SetDestination(waypoints[currentwaypoint].position);
                     currentwaypoint = (currentwaypoint + 1) % waypoints.Count;
                 }
                 break;
             case GuardState.Chasing:
-                while(agent.remainingDistance >30f)
-                {agent.SetDestination(player.position);}
+                
+                nva.SetDestination(player.position);
                 break;
             case GuardState.Returning:
-                if (agent.remainingDistance < 40f)
+                if (nva.remainingDistance < 1f)
                 {
                     Debug.Log("Returned to patrol.");
-                    state = GuardState.Patrolling;
+                    curState = GuardState.Patrolling;
                 }
                 break;
         }
@@ -58,7 +58,7 @@ public class GuardPatrol : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player detected!");
-            state = GuardState.Chasing;
+            curState = GuardState.Chasing;
         }
     }
 
@@ -67,8 +67,8 @@ public class GuardPatrol : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player lost!");
-            state = GuardState.Returning;
-            agent.SetDestination(waypoints[currentwaypoint].position);
+            curState = GuardState.Returning;
+            nva.SetDestination(waypoints[currentwaypoint].position);
         }
     }
 }
